@@ -1,4 +1,5 @@
-echo "shell provisioning bootstrap"
+echo "bootstrap shell provisioning: start"
 
-export PROJECT_NAME='project'
-export PROJECT_WWW_ROOT=/var/www/$PROJECT_NAME
+export FOOMO_PROVISIONING=`true`
+
+echo "bootstrap shell provisioning: end"
