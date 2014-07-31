@@ -77,15 +77,35 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # http://www.microhowto.info/howto/perform_an_unattended_installation_of_a_debian_package.html
 
   config.vm.provision "shell" do |shell|
-    shell.path = "provisioning/10-foomo-apps-provision.sh"
-  end
-  
-  config.vm.provision "shell" do |shell|
-    shell.path = "provisioning/20-docker-provision.sh"
+    shell.path = "provisioning/shell/00-bootstrap.sh"
   end
 
   config.vm.provision "shell" do |shell|
-    shell.path = "provisioning/30-upstart-service-provision.sh"
+    shell.path = "provisioning/shell/10-apt.sh"
+  end
+
+  config.vm.provision "shell" do |shell|
+    shell.path = "provisioning/shell/20-docker.sh"
+  end
+
+  config.vm.provision "shell" do |shell|
+    shell.path = "provisioning/shell/30-mysql.sh"
+  end
+
+  config.vm.provision "shell" do |shell|
+    shell.path = "provisioning/shell/40-mongo.sh"
+  end
+
+  config.vm.provision "shell" do |shell|
+    shell.path = "provisioning/shell/50-foomo-apps.sh"
+  end
+
+  config.vm.provision "shell" do |shell|
+    shell.path = "provisioning/shell/60-docker-run.sh"
+  end
+
+  config.vm.provision "shell" do |shell|
+    shell.path = "provisioning/shell/70-service.sh"
   end
 
 end
